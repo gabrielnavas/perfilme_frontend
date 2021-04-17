@@ -1,8 +1,11 @@
 import { Switch, Route, Router } from 'react-router-dom'
 
 import * as paths from './pathsRoutes'
+
 import historyRouter from './historyRoutes'
+
 import ShowPage from '../pages/ShowPage'
+import Register from '../pages/Register'
 
  const RouterConfig = () => (
   <Router history={historyRouter}>
@@ -11,6 +14,11 @@ import ShowPage from '../pages/ShowPage'
               exact
               path={paths.SHOW_PAGE}
               component={ShowPage}
+          />
+          <Route
+              exact
+              path={paths.REGISTER}
+              component={Register}
           />
           {/* <PrivateRoute
               exact
