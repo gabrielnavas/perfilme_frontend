@@ -12,7 +12,7 @@ const Form = () => {
 
   const handleRegister = React.useCallback(() => {
     (async () => {
-      const {errors, user} = await userRegisterAPI({
+      const { errors } = await userRegisterAPI({
         name,
         email,
         password,
@@ -41,7 +41,7 @@ const Form = () => {
           value={email}
           onChange={e => setEmail(e.target.value)}
           type='text' 
-          placeholder='ricargo@gmail.com' />
+          placeholder='ricardo@gmail.com' />
       </div>
       <div className='group_input'>
         <label>*Senha</label>
