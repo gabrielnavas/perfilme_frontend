@@ -20,16 +20,13 @@ import Register from '../pages/Register'
               path={paths.REGISTER}
               component={Register}
           />
+          <Route path='*' component={ShowPage} />
           {/* <PrivateRoute
               exact
               redirectPath={LOGIN_PAGE_ROUTE}
               path={TODO_PAGE_ROUTE}
               component={TodoPage}
           /> */}
-          <Route 
-            path="*" 
-            component={() => <h1>not found</h1>}
-          />
       </Switch>
   </Router>
 )
