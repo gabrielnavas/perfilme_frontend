@@ -17,7 +17,7 @@ import Register from '../pages/Register'
           />
           <Route
               exact
-              path={paths.REGISTER}
+              path={paths.LOGIN}
               component={Register}
           />
           <Route path='*' component={ShowPage} />
