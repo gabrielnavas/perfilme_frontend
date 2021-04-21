@@ -1,0 +1,10 @@
+.group_input{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+  align-items: flex-start;
+  margin: 5px 0;
+}

@@ -1,20 +1,16 @@
 import React from 'react'
-// import { useParams } from 'react-router-dom'
-
-import './styles.css'
+import Wrapper from '../../components/Wrapper'
 
 import Left from './Left'
 import Right from './Right'
 
 const ShowPage = () => {
 
-  // const { username } = useParams()
-  
   return (
-    <div className='wrapper'>
+    <Wrapper>
       <Left />
       <Right />
-    </div>
+    </Wrapper>
   )
 }
 export default ShowPage

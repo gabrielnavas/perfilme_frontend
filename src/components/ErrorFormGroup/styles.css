@@ -1,0 +1,6 @@
+.error_form_group {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}

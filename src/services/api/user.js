@@ -1,4 +1,4 @@
-import * as paths from './paths'
+import env from '../../env'
 
 export const register = async ({
   name='', 
@@ -6,8 +6,9 @@ export const register = async ({
   password='', 
   passwordConfirmation=''
 }) => {
+  const url = `${env.api.endpoint}user`
   const payload = { name, email, password, passwordConfirmation }
-  const response = await fetch(paths.user.register, {
+  const response = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -26,5 +27,33 @@ export const register = async ({
   return {
     errors: [],
     user: json
+  }
+}
+
+export const userLoginAPI = async ({
+  email='', 
+  password='', 
+}) => {
+  const url = `${env.api.endpoint}auth`
+  const payload = { email, password }
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  })
+  const json = await response.json()
+
+  if(response.status === 400) {
+    return {
+      errors: json,
+      token: undefined
+    }
+  }
+
+  return {
+    errors: [],
+    token: json.token
   }
 }

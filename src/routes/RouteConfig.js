@@ -6,6 +6,7 @@ import historyRouter from './historyRoutes'
 
 import ShowPage from '../pages/ShowPage'
 import Register from '../pages/Register'
+import Login from '../pages/Login'
 
  const RouterConfig = () => (
   <Router history={historyRouter}>
@@ -17,10 +18,15 @@ import Register from '../pages/Register'
           />
           <Route
               exact
-              path={paths.LOGIN}
+              path={paths.CREATE_USER}
               component={Register}
           />
-          <Route path='*' component={ShowPage} />
+          <Route
+              exact
+              path={paths.LOGIN}
+              component={Login}
+          />
+          {/* <Route path='*' component={ShowPage} />s */}
           {/* <PrivateRoute
               exact
               redirectPath={LOGIN_PAGE_ROUTE}

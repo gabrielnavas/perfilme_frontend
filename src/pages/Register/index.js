@@ -1,11 +1,12 @@
 import React from 'react'
 
-import './styles.css'
 import Form from './Form'
+import Header from '../../components/Header'
 
 const Register = () => {
   return (
     <div className='wrapper'>
+      <Header />
       <Form />
     </div>
   )

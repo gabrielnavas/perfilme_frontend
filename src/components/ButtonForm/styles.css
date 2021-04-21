@@ -1,0 +1,12 @@
+button {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  padding: 5px 30px; 
+  color: var(--white);
+  background-color: var(--red);
+  font-weight: 400;
+  font-size: 17px;
+  outline: none;
+}

@@ -1,0 +1,17 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 55px 100px;
+  border: 1px dashed var(--red);
+  border-radius: 15px;
+  background-color: var(--blue_dark_alt);
+}
+
+.title_form {
+  margin: 5px 0;
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--white_alt);
+}
