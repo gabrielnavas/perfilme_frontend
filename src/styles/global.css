@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 :root {
   --blue_dark: #000814;
   --blue_dark_alt: #001d3d;
