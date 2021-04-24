@@ -5,7 +5,7 @@ import Left from './Left'
 import Right from './Right'
 
 const ShowPage = (props) => {
-  // set state in params... https://stackoverflow.com/questions/63685178/how-to-sync-react-router-params-with-state
+  // set state in params... https://stackoverflow.com/questions/63685178/how-to-sync-react-router-params-with-statej
   console.log(props.location.state);
 
 
