@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ErrorForm = ({ key, message }) => 
-  <span key={key}>{`* ${message}`}</span>
+const ErrorForm = ({ children }) => 
+  <span>{`* ${children}`}</span>
 
 export default ErrorForm

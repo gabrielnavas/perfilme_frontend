@@ -48,12 +48,12 @@ export const userLoginAPI = async ({
   if(response.status === 400) {
     return {
       errors: json,
-      token: undefined
     }
   }
 
   return {
     errors: [],
-    token: json.token
+    token: json.token,
+    user: json.user
   }
 }

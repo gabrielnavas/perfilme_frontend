@@ -1,4 +1,7 @@
 import React from 'react'
+import { useHistory } from 'react-router'
+
+import * as pathRoutes from '../../../routes/pathsRoutes'
 
 import Form from '../../../components/Form'
 import ButtonsFormGroup from '../../../components/ButtonsFormGroup'
@@ -6,6 +9,8 @@ import ButtonForm from '../../../components/ButtonForm'
 import InputGroup from '../../../components/InputGroup'
 import Input from '../../../components/Input'
 import Label from '../../../components/Label'
+import ErrorForm from '../../../components/ErrorForm'
+import ErrorFormGroup from '../../../components/ErrorFormGroup'
 
 import {register as userRegisterAPI} from '../../../services/api/user'
 
@@ -16,6 +21,8 @@ const FormRegister = () => {
   const [passwordConfirmation, setPasswordConfirmation] = React.useState('')
   const [errors, setErrors] = React.useState([])
 
+  const history = useHistory()
+
   const handleRegister = React.useCallback(() => {
     (async () => {
       const { errors } = await userRegisterAPI({
@@ -24,9 +31,13 @@ const FormRegister = () => {
         password,
         passwordConfirmation
       })
+      if(errors && errors.length === 0) {
+        console.log('foi');
+        history.push(pathRoutes.LOGIN)
+      }
       setErrors(errors)
     })()
-  }, [name, email, password, passwordConfirmation])
+  }, [name, email, password, passwordConfirmation, history])
 
   return (
     <Form formTitle='Registrar'>
@@ -71,9 +82,11 @@ const FormRegister = () => {
             Cadastrar
         </ButtonForm>
       </ButtonsFormGroup>
-      <div className='errors'>
-        {errors.length > 0 && errors.map(error => <span>{`* ${error}`}</span>)}
-      </div>
+      {
+        errors.length > 0 && 
+          errors.map((error, i) => 
+            <ErrorForm key={i}>{`* ${error}`}</ErrorForm>)
+      }
     </Form>
   )
 }

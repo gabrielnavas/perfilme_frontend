@@ -14,17 +14,17 @@ import Login from '../pages/Login'
           <Route
               exact
               path={paths.SHOW_PAGE}
-              component={props => <ShowPage {...props} />}
+              component={ShowPage}
           />
           <Route
               exact
               path={paths.CREATE_USER}
-              component={props => <Register  {...props} />}
+              component={Register}
           />
           <Route
               exact
               path={paths.LOGIN}
-              component={props => <Login  {...props} />}
+              component={Login}
           />
           {/* <Route path='*' component={ShowPage} />s */}
           {/* <PrivateRoute

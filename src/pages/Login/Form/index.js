@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { userLoginAPI } from '../../../services/api/user'
-
+import { Redirect, useHistory } from 'react-router'
+import * as pathsRoutes from '../../../routes/pathsRoutes'
 
 import Form from '../../../components/Form'
 import ButtonsFormGroup from '../../../components/ButtonsFormGroup'
@@ -17,33 +18,31 @@ const FormLogin = () => {
   const [password, setPassword] = React.useState('')
   const [errors, setErrors] = React.useState([])
 
+  const history = useHistory()
+
   const handleRegister = React.useCallback(() => {
     (async () => {
-      const { errors } = await userLoginAPI({
+      const { errors: errorsResp, token, user } = await userLoginAPI({
         email,
         password,
       })
-      setErrors(errors)
+      if(token) {
+        return history.push({
+          pathname: pathsRoutes.SHOW_PAGE,
+          state: { user, token }
+        })
+      }
+      setErrors(errorsResp)
     })()
-  }, [email, password])
+  }, [email, password, history])
 
   return (
     <Form formTitle='Realizar login'>
       <InputGroup>
-        <Label>* Nome</Label>
+        <Label>*E-mail</Label>
         <Input 
           value={email}
           onChange={e => setEmail(e.target.value)}
-          type='text'  
-          autoFocus 
-          placeholder='Ricardo da Silva...'
-        />
-      </InputGroup>
-      <InputGroup>
-        <Label>*E-mail</Label>
-        <Input 
-          value={password}
-          onChange={e => setPassword(e.target.value)}
           type='text' 
           placeholder='ricardo@gmail.com' />
       </InputGroup>
